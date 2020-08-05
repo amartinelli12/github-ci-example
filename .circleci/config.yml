@@ -10,7 +10,7 @@ jobs:
       - checkout
       - node/install-npm
       - node/install-packages:
-          app-dir: ~/github-search
+          app-dir: ~/project/github-search
           cache-path: node_modules
           override-ci-command: npm install
       - run: npm run lint
