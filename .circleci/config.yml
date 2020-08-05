@@ -4,11 +4,11 @@ orbs:
   node: circleci/node@3.0.1
 
 jobs:
+  - set_directory
   lint:
     executor: node/default
     steps:
       - checkout
-      - set_directory
       - node/install-packages:
           cache-path: ~/github-search/node_modules
           override-ci-command: npm install
@@ -16,6 +16,7 @@ jobs:
   set_directory:
     executor: node/default
     steps:
+      - checkout
       - run: cd github-search && pwd
   build:
     docker: 
