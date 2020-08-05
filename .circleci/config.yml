@@ -6,13 +6,15 @@ orbs:
 jobs:
   lint:
     executor: node/default
-    working_directory: ~/github-search
     steps:
       - checkout
       - node/install-packages:
           cache-path: ~/github-search/node_modules
           override-ci-command: npm install
       - run: npm run lint
+  set-directory:
+      steps:
+        - run: cd github-search
   build:
     docker: 
       - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
@@ -22,4 +24,5 @@ jobs:
 workflows:
   lint_my_app:
     jobs:
+      - set-directory
       - lint
