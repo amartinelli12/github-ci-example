@@ -1,5 +1,17 @@
 version: 2.1
+
+orbs:
+  node: circleci/node@3.0.1
+
 jobs:
+  lint:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          cache-path: ~/project/node_modules
+          override-ci-command: npm install
+      - run: npm run lint
   build:
     docker: 
       - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
