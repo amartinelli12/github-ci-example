@@ -14,6 +14,7 @@ jobs:
           override-ci-command: npm install
       - run: npm run lint
   set_directory:
+    executor: node/default
     steps:
       - run: cd github-search && pwd
   build:
