@@ -3,11 +3,12 @@ version: 2.1
 orbs:
   node: circleci/node@3.0.1
 
-jobs:
+commands:
   set_directory:
-    executor: node/default
     steps:
       - run: cd github-search && pwd
+
+jobs:
   lint:
     executor: node/default
     steps:
