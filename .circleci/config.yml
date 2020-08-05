@@ -13,8 +13,9 @@ jobs:
           override-ci-command: npm install
       - run: npm run lint
   set_directory:
-      steps:
-        - run: cd github-search
+    executor: node/default
+    steps:
+      - run: cd github-search
   build:
     docker: 
       - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
