@@ -3,19 +3,15 @@ version: 2.1
 orbs:
   node: circleci/node@3.0.1
 
-commands:
-  set_directory:
-    steps:
-      - run: cd github-search && pwd
-
 jobs:
   lint:
     executor: node/default
     steps:
       - checkout
-      - set_directory
+      - node/install-npm
       - node/install-packages:
-          cache-path: ~/github-search/node_modules
+          app-dir: ~/github-search
+          cache-path: node_modules
           override-ci-command: npm install
       - run: npm run lint
   build:
