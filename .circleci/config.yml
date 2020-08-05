@@ -8,7 +8,7 @@ jobs:
     executor: node/default
     steps:
       - checkout
-      working_directory: ~/github-search
+      - working_directory: ~/github-search
       - node/install-packages:
           cache-path: ~/github-search/node_modules
           override-ci-command: npm install
