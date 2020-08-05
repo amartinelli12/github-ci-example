@@ -6,7 +6,7 @@ orbs:
 jobs:
   lint:
     executor: node/default
-    app-dir: ./github-search
+    working_directory: ./github-search
     steps:
       - checkout
       - node/install-packages:
