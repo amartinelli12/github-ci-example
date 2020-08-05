@@ -1,11 +1,11 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 
-import { of } from "rxjs";
+import { of } from 'rxjs';
 import { switchMap, map, catchError } from 'rxjs/operators';
 
-import { getUsersRequest, getUsersSuccess, getUsersError } from "./table-container.actions";
+import { getUsersRequest, getUsersSuccess, getUsersError } from './table-container.actions';
 import { GetUsersResponse } from '../../root-store/user-response.model';
 
 @Injectable({
@@ -24,7 +24,7 @@ export class TableContainerEffects {
                 )
             )
         )
-    )
+    );
     constructor(
         private actions$: Actions,
         private httpClient: HttpClient

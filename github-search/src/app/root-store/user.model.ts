@@ -1,6 +1,6 @@
 export enum UserEnum {
     USER = 'User'
-};
+}
 
 export interface User {
     readonly login: string;
