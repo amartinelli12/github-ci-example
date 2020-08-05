@@ -8,8 +8,8 @@ jobs:
     executor: node/default
     steps:
       - checkout
-      - run: cd github-search
       - node/install-packages:
+          - run: cd github-search
           cache-path: ~/github-search/node_modules
           override-ci-command: npm install
       - run: npm run lint
