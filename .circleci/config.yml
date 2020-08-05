@@ -8,13 +8,12 @@ jobs:
     executor: node/default
     steps:
       - checkout
-      - working_directory: ~/github-search
+      - set_directory
       - node/install-packages:
           cache-path: ~/github-search/node_modules
           override-ci-command: npm install
       - run: npm run lint
   set_directory:
-    executor: node/default
     steps:
       - run: cd github-search && pwd
   build:
