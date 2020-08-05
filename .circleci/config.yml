@@ -1,5 +1,5 @@
 version: 2.1
-
+# I used https://circleci.com/orbs/registry/orb/circleci/node for guidance
 orbs:
   node: circleci/node@3.0.1
 
@@ -9,7 +9,7 @@ jobs:
     steps:
       - checkout
       - node/install-packages:
-          cache-path: ~/project/node_modules
+          cache-path: ~/github-search/node_modules
           override-ci-command: npm install
       - run: npm run lint
   build:
@@ -17,4 +17,8 @@ jobs:
       - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
     steps:
       - checkout # check out the code in the project directory
-      - run: echo "hello world" # run the `echo` command
+      - run: echo "hello world"
+workflows:
+  lint_my_app:
+    jobs:
+      - lint
