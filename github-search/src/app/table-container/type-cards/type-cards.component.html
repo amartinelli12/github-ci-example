@@ -1,0 +1,27 @@
+<mat-card (click)="setSearchType(types.REPOSITORIES)" [className]="setClass(types.REPOSITORIES)">
+    <p><span [matBadge]="totals[types.REPOSITORIES]" matBadgeOverlap="false" matBadgePosition="after">{{types.REPOSITORIES}}</span></p>
+</mat-card>
+<mat-card (click)="setSearchType(types.CODE)" [className]="setClass(types.CODE)">
+    <p><span [matBadge]="totals[types.CODE]" matBadgeOverlap="false">{{types.CODE}}</span></p>
+</mat-card>
+<mat-card (click)="setSearchType(types.COMMITS)" [className]="setClass(types.COMMITS)">
+    <p><span [matBadge]="totals[types.COMMITS]" matBadgeOverlap="false">{{types.COMMITS}}</span></p>
+</mat-card>
+<mat-card (click)="setSearchType(types.ISSUES)" [className]="setClass(types.ISSUES)">
+    <p><span [matBadge]="totals[types.ISSUES]" matBadgeOverlap="false">{{types.ISSUES}}</span></p>
+</mat-card>
+<mat-card (click)="setSearchType(types.PACKAGES)" [className]="setClass(types.PACKAGES)">
+    <p><span [matBadge]="totals[types.PACKAGES]" matBadgeOverlap="false">{{types.PACKAGES}}</span></p>
+</mat-card>
+<mat-card (click)="setSearchType(types.MARKETPLACE)" [className]="setClass(types.MARKETPLACE)">
+    <p><span [matBadge]="totals[types.MARKETPLACE]" matBadgeOverlap="false">{{types.MARKETPLACE}}</span></p>
+</mat-card>
+<mat-card (click)="setSearchType(types.TOPICS)" [className]="setClass(types.TOPICS)">
+    <p><span [matBadge]="totals[types.TOPICS]" matBadgeOverlap="false">{{types.TOPICS}}</span></p>
+</mat-card>
+<mat-card (click)="setSearchType(types.WIKIS)" [className]="setClass(types.WIKIS)">
+    <p><span [matBadge]="totals[types.WIKIS]" matBadgeOverlap="false">{{types.WIKIS}}</span></p>
+</mat-card>
+<mat-card (click)="setSearchType(types.USERS)" [className]="setClass(types.USERS)">
+    <span [matBadge]="totals[types.USERS]" matBadgeOverlap="false">{{types.USERS}}</span>
+</mat-card>

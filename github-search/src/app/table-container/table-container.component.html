@@ -1,0 +1,82 @@
+<app-search-bar
+  (search)="search($event)"
+></app-search-bar>
+<!-- TODO: Implement additional search parameters, time permitting -->
+
+
+<div *ngIf="users$ | async as users" class="page-container">
+  <app-type-cards
+    (selectType)="setSearchType($event)"
+    [activeSearchType]="activeSearchType$ | async"
+    [totals]="totals$ | async"
+  ></app-type-cards>
+  
+  <div class="table-container">
+    <div *ngIf="totalCount$ | async as total" class="total-container">
+      <div class="total-wrapper">{{total}} User(s)</div>
+      
+    </div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+    <ng-container matColumnDef="urls">
+      <th mat-header-cell *matHeaderCellDef> Urls </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <span>Urls: </span>
+              </mat-panel-title>
+              <mat-panel-description>
+                <span>
+                  A list of urls returned by the search
+                </span>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <ul>
+              <li><a href="{{element.urls.html_url}}">User Profile</a></li>
+              <li><a href="{{element.urls.url}}">User Url</a></li>
+              <li><a href="{{element.urls.followers_url}}">Followers</a></li>
+              <li><a href="{{element.urls.following_url}}">Following</a></li>
+              <li><a href="{{element.urls.subscriptions_url}}">Subscriptions (Not RxJs! :p)</a></li>
+              <li><a href="{{element.urls.organizations_url}}">Organizations</a></li>
+              <li><a href="{{element.urls.repos_url}}">Repos</a></li>
+              <li><a href="{{element.urls.events_url}}">Events</a></li>
+              <li><a href="{{element.urls.received_events_url}}">Received Events</a></li>
+            </ul>
+          </mat-expansion-panel>
+          </mat-accordion>
+      </td>
+    </ng-container>
+    
+          <ng-container matColumnDef="login">
+            <th mat-header-cell *matHeaderCellDef> Login </th>
+            <td mat-cell *matCellDef="let element">
+          
+              <div class="results-container">
+                <div class="image-container">
+                  <img src="{{element.urls.avatar_url}}" width="15" height="15" class="image-container"/>
+                </div>
+                
+                <div class="results">
+                  <ul>
+                    <li>
+                      <a href="{{element.urls.html_url}}" target="_blank">{{setUserLinkDisplayName(element)}}</a><span
+                        *ngIf="element.name"> {{element.login}}</span>
+                    </li>
+                    <li *ngIf="element.location as location">
+                      {{location}}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </td>
+          </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="PAGE_SIZE_OPTIONS" showFirstLastButtons [length]="users.length"></mat-paginator>
+  </div>
+</div>
+
+

@@ -1,8 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { TableContainerModule } from './table-container/table-container.module';
+import { RootStoreModule } from './root-store/root-store.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -10,7 +14,11 @@ import { TableContainerModule } from './table-container/table-container.module';
   ],
   imports: [
     BrowserModule,
-    TableContainerModule
+    TableContainerModule,
+    BrowserAnimationsModule,
+    RootStoreModule,
+    HttpClientModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

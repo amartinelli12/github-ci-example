@@ -1,0 +1,13 @@
+
+    <div class="flex-container">
+        <!-- <mat-checkbox
+            class="search-checkbox"
+            [checked]="selected"
+            color="primary"
+            (change)="setSelected($event.checked)">
+                  Check me
+        </mat-checkbox> -->
+        <mat-label for="primary-search" >Search for users on Github</mat-label>
+        <input #searchTerm id="primary-search" matInput placeholder="Ex. Foo" (keydown.enter)="searchGitlab(searchTerm.value)">
+        <button mat-button color="primary" (click)="searchGitlab(searchTerm.value)">Search</button>
+    </div>
