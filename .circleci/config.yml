@@ -11,7 +11,7 @@ jobs:
       - checkout
       - node/install-npm
       - node/install-packages:
-          app-dir: ~/project/github-search
+          app-dir: ~/project
           cache-path: node_modules
           override-ci-command: npm install
       - run: npm run lint
@@ -21,7 +21,7 @@ jobs:
       - checkout
       - node/install-npm
       - node/install-packages:
-          app-dir: ~/project/github-search
+          app-dir: ~/project
           cache-path: node_modules
           override-ci-command: npm install
       - run: npm run build
