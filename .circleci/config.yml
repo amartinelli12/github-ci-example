@@ -2,6 +2,7 @@ version: 2.1
 # I used https://circleci.com/orbs/registry/orb/circleci/node for guidance
 orbs:
   node: circleci/node@3.0.1
+  heroku: circleci/heroku@0.0.10
 
 jobs:
   lint:
@@ -29,3 +30,6 @@ workflows:
     jobs:
       - lint
       - build
+  heroku_deploy:
+    jobs:
+      - heroku/deploy-via-git
