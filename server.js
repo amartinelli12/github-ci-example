@@ -4,10 +4,10 @@ const express = require('express');
 
 const app = express();
 
-app.use(express.static('./github-search/dist/github-search'));
+app.use(express.static('./dist/github-search'));
 
 app.get('/*', (req, res) =>
-    res.sendFile('index.html', {root: 'github-search/dist/github-search/'}),
+    res.sendFile('index.html', {root: 'dist/github-search/'}),
 );
 
 app.listen(process.env.PORT || 8080);

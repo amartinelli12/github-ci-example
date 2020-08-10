@@ -14,7 +14,7 @@ jobs:
           app-dir: ~/project/github-search
           cache-path: node_modules
           override-ci-command: npm install
-      - run: cd github-search && npm run lint
+      - run: npm run lint
   build:
     executor: node/default
     steps:
@@ -24,7 +24,7 @@ jobs:
           app-dir: ~/project/github-search
           cache-path: node_modules
           override-ci-command: npm install
-      - run: cd github-search && npm run build
+      - run: npm run build
 workflows:
   lint_my_app:
     jobs:
