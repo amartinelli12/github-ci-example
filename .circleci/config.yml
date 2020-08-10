@@ -28,3 +28,4 @@ workflows:
   lint_my_app:
     jobs:
       - lint
+      - build
